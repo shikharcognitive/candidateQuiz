@@ -8,10 +8,12 @@ import QuesThree from './components/quesThree';
 import QuesFour from './components/quesFour';
 import QuesFive from './components/quesFive';
 import Result from './components/results';
+import ResponsiveAppBar from './components/navBar';
 
 const App: React.FC<any> = () => {
   return (
     <div className="App">
+      <ResponsiveAppBar/>
       <Routes>
         <Route path='/' element={<UserDetails/>}/>
         <Route path='/q1' element={<QuesOne/>}/>
