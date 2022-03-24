@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React, {FC, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,8 +11,7 @@ interface IResultProps {
 const Result:FC<IResultProps> = (props:any) => {
 
     const [ percentage, setPercentage ] = useState<any>(0);
-    const [ totalCount, setTotalCount ] = useState<any>(0)
-
+    const [ totalCount, setTotalCount ] = useState<any>(0);
     const navigate = useNavigate();
 
     useEffect( () => {
@@ -64,15 +63,18 @@ const Result:FC<IResultProps> = (props:any) => {
         <Box mt={2} sx={{justifyContent:'center', alignItems:'center'}}>
             <h3>{`Result ${totalCount}/5`}</h3>
             <h5> Result Percentage Here</h5>
-                <Box
-                    sx={{
-                        width: 200,
-                        height: 200,
-                        marginLeft:'45%',
-                        background: `conic-gradient(green ${percentage}% ,red 0)`,
-                        borderRadius: "50%",
-                    }}
-                ></Box>
+            <Box
+                sx={{
+                    width: 200,
+                    height: 200,
+                    marginLeft:'45%',
+                    background: `conic-gradient(green ${percentage}% ,red 0)`,
+                    borderRadius: "50%",
+                }}
+            ></Box>
+             <Box mt={2}>
+                <Button variant="contained" onClick={() => navigate('/')}>Home</Button>
+            </Box>
 
         </Box>
     )

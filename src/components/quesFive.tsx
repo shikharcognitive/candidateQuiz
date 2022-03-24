@@ -47,8 +47,8 @@ const QuesFive:FC<IQ5Props> = (props:any) => {
                 </Grid>
                 <Grid item xs={2}>
                     {
-                        answerArr.length > 0 && answerArr.map( (e:any) => {
-                            return (<h4  aria-disabled={true}>{e}</h4>)
+                        answerArr.length > 0 && answerArr.map( (e:any,index:any) => {
+                            return (<h4  aria-disabled={true} key={index}>{e}</h4>)
                         })
                     }
                 </Grid>
