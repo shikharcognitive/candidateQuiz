@@ -17,7 +17,7 @@ import {
 const UserDetails:FC<any> = () => {
 
     const navigate = useNavigate();
-    const [value, setValue] = useState<string>("");
+    const [value, setValue] = useState<string>("select");
   
     const handleChange = (event: SelectChangeEvent) => {
       setValue(event.target.value as string);
@@ -59,12 +59,11 @@ const UserDetails:FC<any> = () => {
           </RadioGroup>
           <label style={styles.container}>Question Type</label> <br />
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
             value={value}
-            label="Age"
+            label="Language"
             onChange={handleChange}
           >
+            <MenuItem value={"select"}>English</MenuItem>
             <MenuItem value={"english"}>English</MenuItem>
             <MenuItem value={"telugu"}>Maths</MenuItem>
             <MenuItem value={"hindi"}>Physics</MenuItem>

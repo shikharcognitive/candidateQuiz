@@ -10,7 +10,8 @@ interface IResultProps {
 
 const Result:FC<IResultProps> = (props:any) => {
 
-    const [ percentage, setPercentage ] = useState<any>(0)
+    const [ percentage, setPercentage ] = useState<any>(0);
+    const [ totalCount, setTotalCount ] = useState<any>(0)
 
     const navigate = useNavigate();
 
@@ -27,20 +28,21 @@ const Result:FC<IResultProps> = (props:any) => {
         const answered = props.answers;
         const questions = props.questions;
         let changePercentage = 0;
+        let total = 0;
         if(answered[0].id === questions[0].id) {
-            if(answered[0].answer === questions[0].answer) { changePercentage += 20 };
+            if(answered[0].answer === questions[0].answer) { changePercentage += 20; total += 1 };
         }
         if(answered[1].id === questions[1].id) {
-           if( answered[1].answer === questions[1].answer ) { changePercentage += 20  };
+           if( answered[1].answer === questions[1].answer ) { changePercentage += 20 ; total += 1 };
         }
         if(answered[2].id === questions[2].id) {
-            if(answered[2].answer === questions[2].answer ) { changePercentage += 20  };
+            if(answered[2].answer === questions[2].answer ) { changePercentage += 20 ; total += 1 };
         }
         if(answered[3].id === questions[3].id) {
             if(answered[3].answer.length === questions[3].answer.length ) {
                 if(answered[3].answer[0] === questions[3].answer[0] && answered[3].answer[1] === questions[3].answer[1] )
                 {
-                    changePercentage += 20 
+                    changePercentage += 20 ; total += 1
                 }
             };
         }
@@ -49,21 +51,24 @@ const Result:FC<IResultProps> = (props:any) => {
                 if(answered[4].answer[0] === questions[4].answer[0] && answered[4].answer[1] === questions[4].answer[1] &&
                     answered[4].answer[2] === questions[4].answer[2] && answered[4].answer[3] === questions[4].answer[3] )
                 {
-                    changePercentage += 20 
+                    changePercentage += 20 ; total += 1
+                    
                 }
             }
         }
-        setPercentage(changePercentage)
+        setPercentage(changePercentage);
+        setTotalCount(total)
     }
 
     return (
         <Box mt={2} sx={{justifyContent:'center', alignItems:'center'}}>
-            <h3>Results</h3>
+            <h3>{`Result ${totalCount}/5`}</h3>
             <h5> Result Percentage Here</h5>
                 <Box
                     sx={{
                         width: 200,
                         height: 200,
+                        marginLeft:'45%',
                         background: `conic-gradient(green ${percentage}% ,red 0)`,
                         borderRadius: "50%",
                     }}
