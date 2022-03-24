@@ -74,7 +74,7 @@ const App: React.FC<any> = () => {
         <Route path='/q3' element={<QuesThree ques={userQuestions[2]} setAnswers={setUserAnswers}/>}/>
         <Route path='/q4' element={<QuesFour ques={userQuestions[3]} setAnswers={setUserAnswers}/>}/>
         <Route path='/q5' element={<QuesFive ques={userQuestions[4]} setAnswers={setUserAnswers}/>}/>
-        <Route path='/result' element={<Result/>}/>
+        <Route path='/result' element={<Result answers={userAnswers}/>}/>
       </Routes>
       
     </div>
