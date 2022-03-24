@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import { useLocation, useNavigate} from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: '#eefeee',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
