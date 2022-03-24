@@ -42,12 +42,7 @@ const UserDetails:FC<any> = () => {
             placeholder="Enter your name"
             required
           ></TextField>
-          <TextField
-            sx={{ padding: "10px", width: "400px" }}
-            type="number"
-            placeholder="Enter your age"
-            required
-          ></TextField>
+          <TextField  sx={{ padding: "10px", width: "400px" }} placeholder="Enter your age" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
           <FormLabel
             id="demo-row-radio-buttons-group-label"
             sx={{ fontSize: "30px" }}

@@ -18,13 +18,13 @@ const App: React.FC<any> = () => {
     {
       "question": "2+3",
       "answer": "5",
-      "id": 1,
+      "id": '1',
       "heading": "fill in the Blanks",
       "questionOption": [""],
       "option": [""]
     },
     {
-      "id": 2,
+      "id": '2',
       "question": "5+4",
       "answer": "9",
       "heading": "choose the correct answer",
@@ -32,7 +32,7 @@ const App: React.FC<any> = () => {
       "questionOption": [""]
     },
     {
-      "id": 3,
+      "id": '3',
       "question": "4>7",
       "answer": "no",
       "heading": "yes or no",
@@ -40,7 +40,7 @@ const App: React.FC<any> = () => {
       "questionOption":[""]
     },
     {
-      "id": 4,
+      "id": '4',
       "question": "value of pie",
       "option": ["3.142", "3", "4", "22/7"],
       "heading": "fill in the Blanks",
@@ -48,7 +48,7 @@ const App: React.FC<any> = () => {
       "questionOption":[""]
     },
     {
-      "id": 5,
+      "id": '5',
       "question": "Match the following",
       "questionOption": ["2+4 =", "3-1 =", "8/2 =", "4*2 ="],
       "heading": "fill in the Blanks",
@@ -74,7 +74,7 @@ const App: React.FC<any> = () => {
         <Route path='/q3' element={<QuesThree ques={userQuestions[2]} setAnswers={setUserAnswers}/>}/>
         <Route path='/q4' element={<QuesFour ques={userQuestions[3]} setAnswers={setUserAnswers}/>}/>
         <Route path='/q5' element={<QuesFive ques={userQuestions[4]} setAnswers={setUserAnswers}/>}/>
-        <Route path='/result' element={<Result answers={userAnswers}/>}/>
+        <Route path='/result' element={<Result questions={userQuestions} answers={userAnswers}/>}/>
       </Routes>
       
     </div>
