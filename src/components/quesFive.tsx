@@ -8,21 +8,26 @@ interface IQ5Props {
   }
 
 
+  const styles:any = {
+    pointer: {
+        cursor: 'pointer'
+    },
+  };
 
 const QuesFive:FC<IQ5Props> = (props:any) => {
-    const[ answer, setAnswer] = useState<any>('');
     const navigate = useNavigate();
+    const[ answerArr, setAnswerArr] = useState<any>([]);
 
     const reRoute:any = (type:any) => {
-        if(answer === '') return alert('please submit the answer first');
+        if(answerArr.length < 4 ) return alert('please submit all answers first');
 
             if(type === 'f') {
-                props.setAnswers('5', answer);
+                props.setAnswers('5', answerArr);
                 navigate('/result')
             }
 
             if(type==='p') {
-                props.setAnswers('5', answer);
+                props.setAnswers('5', answerArr);
                 navigate('/q4');
             }
     }
@@ -41,12 +46,16 @@ const QuesFive:FC<IQ5Props> = (props:any) => {
                     }
                 </Grid>
                 <Grid item xs={2}>
-                    <h5>8</h5>
+                    {
+                        answerArr.length > 0 && answerArr.map( (e:any) => {
+                            return (<h4  aria-disabled={true}>{e}</h4>)
+                        })
+                    }
                 </Grid>
                 <Grid item xs={2}>
                 {
                         props.ques.option.map( (e:string) => {
-                            return (<h4>{e}</h4>)
+                            return (<h4 className={styles.pointer} onClick={(event:any) =>setAnswerArr([e,...answerArr]) }>{e}</h4>)
                         })
                     }
                 </Grid>
@@ -59,5 +68,6 @@ const QuesFive:FC<IQ5Props> = (props:any) => {
         </div>
     )
 };
+
 
 export default QuesFive;
