@@ -58,7 +58,7 @@ const App: React.FC<any> = () => {
   ];
 
   const setUserAnswers:any = (id:any, value:any) => {
-    console.log('the id : ', id, value);
+    // console.log('the id : ', id, value);
     userAnswers.filter( (ele:any, index:any) => ele.id === id ? delete userAnswers[index] : false);
     userAnswers.push({'id':id, 'answer':value});
   }

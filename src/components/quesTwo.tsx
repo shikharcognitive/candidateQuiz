@@ -26,7 +26,7 @@ const QuesTwo:FC<IQ2Props> = (props:any) => {
 
     return (
         <div>
-        <h5>{props.ques.heading} </h5>
+        <h5>Question - {props.ques.id} </h5>
         <h5>{props.ques.question} </h5>
         <Box>
         <RadioGroup

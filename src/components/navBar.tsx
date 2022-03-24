@@ -30,8 +30,6 @@ export default function BasicGrid() {
         } else {
             setShowQuesBar(false);
         }
-
-        console.log(location.pathname);
     }, [location]);
 
 
