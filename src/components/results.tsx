@@ -63,6 +63,14 @@ const Result:FC<IResultProps> = (props:any) => {
         
     }
 
+    const renderStyleColor:any = (id:any) => {
+        const answered = props.answers;
+        const questions = props.questions;
+
+        if( answered[id].answer === questions[id].answer)  {return 'green' } else { return 'red'}
+
+    }
+
     return (
         <Box mt={2} sx={{justifyContent:'center', alignItems:'center'}}>
             <h3>{`Result ${totalCount}/5`}</h3>
@@ -79,33 +87,53 @@ const Result:FC<IResultProps> = (props:any) => {
              <Box mt={2}>
                  <h3>Result answer</h3>
                  <Grid container direction='column' spacing={2} sx={{alignItems:'center'}}>
+                    
                     <Grid item xs={8}>
-                        <Card sx={{ width: 370 , background:'green'}}>
+                        <Card sx={{ width: 370 , background:renderStyleColor('0')}}>
                             <CardContent>
                                 <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
-                                {}Word of the Day
+                                {props.questions[0].question} = {props.answers[0].answer} 
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={8}>
-                        <Card sx={{ width: 370 , background:'green'}}>
+                        <Card sx={{ width: 370 , background:renderStyleColor('1')}}>
                             <CardContent>
                                 <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
-                                {}Word of the Day
+                                {props.questions[1].question} = {props.answers[1].answer} 
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={8}>
-                        <Card sx={{ width: 370, background:'green'}}>
+                        <Card sx={{ width: 370, background:renderStyleColor('2')}}>
                             <CardContent>
                                 <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
-                                {}Word of the Day
+                                {props.questions[2].question} = {props.answers[2].answer} 
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
+                    <Grid item xs={8}>
+                        <Card sx={{ width: 370 , background:renderStyleColor('3')}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
+                                {props.questions[3].question} = {props.answers[3].answer} 
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Card sx={{ width: 370, background:renderStyleColor('4')}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
+                                {props.questions[4].question} = {props.answers[4].answer} 
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+
                 </Grid>
              </Box>
              <Box mt={2}>
