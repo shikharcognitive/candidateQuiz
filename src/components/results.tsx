@@ -12,6 +12,7 @@ const Result:FC<IResultProps> = (props:any) => {
 
     const [ percentage, setPercentage ] = useState<any>(0);
     const [ totalCount, setTotalCount ] = useState<any>(0);
+    const [answerStyle, setAnswerStyle] = useState<any>([])
     const navigate = useNavigate();
 
     useEffect( () => {
@@ -19,20 +20,19 @@ const Result:FC<IResultProps> = (props:any) => {
             return navigate('/');
         }
 
-        if(props.answers && props.answers.length === props.questions && props.questions.length ) {
-        setAnswersPercentage()
+        if( props.answers.length === props.questions.length ) {
+            setAnswersPercentage();
         }
 // console.log(props.answers);
     },[]);
 
     const setAnswersPercentage:any = () => {
-        // console.log(percentage);
         const answered = props.answers;
         const questions = props.questions;
         let changePercentage = 0;
         let total = 0;
         if(answered[0].id === questions[0].id) {
-            if(answered[0].answer === questions[0].answer) { changePercentage += 20; total += 1 };
+            if(answered[0].answer === questions[0].answer) { changePercentage += 20; total += 1; setAnswerStyle([true,...answerStyle]) };
         }
         if(answered[1].id === questions[1].id) {
            if( answered[1].answer === questions[1].answer ) { changePercentage += 20 ; total += 1 };
@@ -60,6 +60,7 @@ const Result:FC<IResultProps> = (props:any) => {
         }
         setPercentage(changePercentage);
         setTotalCount(total)
+        
     }
 
     return (
@@ -77,15 +78,33 @@ const Result:FC<IResultProps> = (props:any) => {
             ></Box>
              <Box mt={2}>
                  <h3>Result answer</h3>
-                 <Grid container spacing={2}>
+                 <Grid container direction='column' spacing={2} sx={{alignItems:'center'}}>
                     <Grid item xs={8}>
-                    <Card>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        </CardContent>
-        </Card>
+                        <Card sx={{ width: 370 , background:'green'}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
+                                {}Word of the Day
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Card sx={{ width: 370 , background:'green'}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
+                                {}Word of the Day
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Card sx={{ width: 370, background:'green'}}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" color="text.secondary" gutterBottom>
+                                {}Word of the Day
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
                 </Grid>
              </Box>
