@@ -33,7 +33,7 @@ const QuesFive:FC<IQ5Props> = (props:any) => {
     }
 
     return (
-        <div>
+        <div data-testid='question-5'>
         <h5>Question - {props.ques.id} </h5>
         <h5>{props.ques.question} </h5>
         <Box>

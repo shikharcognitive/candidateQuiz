@@ -63,10 +63,9 @@ const UserDetails:FC<any> = () => {
             label="Language"
             onChange={handleChange}
           >
-            <MenuItem value={"select"}>English</MenuItem>
+            <MenuItem value={"select"}>Select</MenuItem>
             <MenuItem value={"english"}>English</MenuItem>
             <MenuItem value={"telugu"}>Maths</MenuItem>
-            <MenuItem value={"hindi"}>Physics</MenuItem>
           </Select>
           <Button
             sx={{ width: "200px", padding: "10px", margin: "2rem" }}
