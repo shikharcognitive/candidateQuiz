@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, Card, CardContent, Grid, Typography } from '@mui/material';
 import React, {FC, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,10 @@ const Result:FC<IResultProps> = (props:any) => {
         if(props.answers && props.answers.length === 0 ) {
             return navigate('/');
         }
+
+        if(props.answers && props.answers.length === props.questions && props.questions.length ) {
         setAnswersPercentage()
+        }
 // console.log(props.answers);
     },[]);
 
@@ -72,6 +75,20 @@ const Result:FC<IResultProps> = (props:any) => {
                     borderRadius: "50%",
                 }}
             ></Box>
+             <Box mt={2}>
+                 <h3>Result answer</h3>
+                 <Grid container spacing={2}>
+                    <Grid item xs={8}>
+                    <Card>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Word of the Day
+        </Typography>
+        </CardContent>
+        </Card>
+                    </Grid>
+                </Grid>
+             </Box>
              <Box mt={2}>
                 <Button variant="contained" onClick={() => navigate('/')}>Home</Button>
             </Box>
